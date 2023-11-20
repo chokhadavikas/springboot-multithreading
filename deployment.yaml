@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-multithreading
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-multithreading
+  template:
+    metadata:
+      labels:
+        app: springboot-multithreading
+    spec:
+      containers:
+        - name: springboot-multithreading
+          image: springboot-multithreading:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
